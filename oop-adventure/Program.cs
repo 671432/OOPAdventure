@@ -1,12 +1,16 @@
 ﻿using OOPAdventure;
 
-Console.WriteLine("Hello, what's ur name?");
+Text.LoadLanguage(new English());
+
+Console.WriteLine(Text.Language.ChooseYourName);
 
 var name = Console.ReadLine();
 
 if (name == String.Empty)
-    name = "No Name";
+    name = Text.Language.DefaultName;
 
 var player = new Player(name);
 
-Console.WriteLine("Welcome {0} to your OOP Adventure!", player.Name);
+Console.WriteLine(Text.Language.Welcome, player.Name);
+
+var house = new House(player);
